@@ -13,11 +13,22 @@ export const removeCar = (index) => {
         value: index
     }
 }
-export const fetchMakes = (index) => {
+export const fetchMakes = () => {
+    return dispatch => {
     fetch(url)
     .then(res => res.json())
     .then(response => {
-        return {type: 'FETCH_MAKES', value: response.Results }
+        const disc ={
+            type: 'FETCH_MAKES',
+            value: response.Results 
+        }
+        dispatch(disc)
     })
-   
+}
+}
+export const deleteMake = (index) => {
+    return {
+        type: 'DELETE_MAKE',
+        value: index
+    }
 }
